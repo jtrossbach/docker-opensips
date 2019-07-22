@@ -19,4 +19,10 @@ EXPOSE 5060/udp
 
 COPY run.sh /run.sh
 
+RUN touch /var/log/opensips.log && \
+    chgrp -R 0 /var && \
+    chmod -R g=u /var && \
+    chgrp -R 0 /dev && \
+    chmod -R g=u /dev
+
 ENTRYPOINT ["/run.sh"]
