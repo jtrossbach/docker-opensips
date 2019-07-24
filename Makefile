@@ -1,5 +1,5 @@
 NAME ?= opensips
-OPENSIPS_VERSION ?= 3.0
+OPENSIPS_VERSION ?= master
 
 all: build start
 
