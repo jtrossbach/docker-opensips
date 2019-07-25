@@ -28,6 +28,6 @@ RUN touch /var/log/opensips.log && \
     chmod -R g=u /dev && \
     chmod -R 0 /usr && \
     chmod -R g=u /usr && \
-    apt-get install coreutils
+    apt-get install -y coreutils
 
 ENTRYPOINT ["/run.sh"]
