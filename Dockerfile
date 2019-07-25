@@ -25,6 +25,8 @@ RUN touch /var/log/opensips.log && \
     chgrp -R 0 /var && \
     chmod -R g=u /var && \
     chgrp -R 0 /dev && \
-    chmod -R g=u /dev
+    chmod -R g=u /dev && \
+    chmod -R 0 /usr && \
+    chmod -R g=u /usr
 
 ENTRYPOINT ["/run.sh"]
