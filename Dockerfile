@@ -1,4 +1,3 @@
-
 FROM debian:jessie
 MAINTAINER Razvan Crainea <razvan@opensips.org>
 
@@ -9,7 +8,7 @@ ARG VERSION=2.4
 WORKDIR /usr/local/src
 
 RUN apt-get update -qq && apt-get install -y build-essential \
-		git bison flex m4 pkg-config libncurses5-dev rsyslog
+		git bison flex m4 pkg-config libncurses5-dev rsyslog coreutils
 
 RUN git clone https://github.com/OpenSIPS/opensips.git -b $VERSION opensips_$VERSION
 RUN cd opensips_$VERSION && make all && make install
@@ -27,7 +26,6 @@ RUN touch /var/log/opensips.log && \
     chgrp -R 0 /dev && \
     chmod -R g=u /dev && \
     chmod -R 0 /usr && \
-    chmod -R g=u /usr && \
-    apt-get install -y coreutils
+    chmod -R g=u /usr 
 
 ENTRYPOINT ["/run.sh"]
